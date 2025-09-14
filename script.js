@@ -31,4 +31,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Intersection Observer for scroll animations
+    const animatedElements = document.querySelectorAll('.about-image img, .about-content .subtitle, .about-content .title, .about-content p, .services');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // The animations are set to run once the element is visible
+                // The CSS handles the animation state, no need to add a class
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    });
+
+    animatedElements.forEach(el => {
+        observer.observe(el);
+    });
 });
