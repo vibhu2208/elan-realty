@@ -78,4 +78,26 @@ document.addEventListener('DOMContentLoaded', function() {
             closeModal();
         }
     });
+
+    // Project Locations Interactivity
+    const projectListItems = document.querySelectorAll('.pl-list li');
+    const projectCards = document.querySelectorAll('.pl-card');
+
+    projectListItems.forEach(item => {
+        item.addEventListener('click', () => {
+            // Remove active class from all items and cards
+            projectListItems.forEach(i => i.classList.remove('active'));
+            projectCards.forEach(c => c.classList.remove('active'));
+
+            // Add active class to the clicked item
+            item.classList.add('active');
+
+            // Get the target project and activate the corresponding card
+            const targetProject = item.getAttribute('data-target');
+            const targetCard = document.querySelector(`.pl-card[data-project="${targetProject}"]`);
+            if (targetCard) {
+                targetCard.classList.add('active');
+            }
+        });
+    });
 });
