@@ -52,25 +52,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Video Modal Functionality
-    const openVideoButton = document.getElementById('open-video');
+    const videoTriggers = document.querySelectorAll('.video-trigger');
     const closeVideoButton = document.getElementById('close-video');
     const videoModal = document.getElementById('video-modal');
     const youtubeVideo = document.getElementById('youtube-video');
-    const videoSrc = 'https://www.youtube.com/embed/umgQvzdaDcM?si=-JMWSyOyEp5mMFrQ&autoplay=1&mute=1';
 
-    openVideoButton.addEventListener('click', () => {
-        videoModal.classList.add('show');
-        youtubeVideo.src = videoSrc;
+    videoTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const videoSrc = trigger.getAttribute('data-video-src');
+            youtubeVideo.src = videoSrc;
+            videoModal.classList.add('show');
+        });
     });
 
     const closeModal = () => {
         videoModal.classList.remove('show');
-        youtubeVideo.src = ''; // Stop the video
+        youtubeVideo.src = ''; // Stop the video by clearing the src
     };
 
     closeVideoButton.addEventListener('click', closeModal);
 
     videoModal.addEventListener('click', (e) => {
+        // Close the modal if the user clicks on the background overlay
         if (e.target === videoModal) {
             closeModal();
         }

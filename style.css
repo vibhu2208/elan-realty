@@ -564,3 +564,69 @@ h1, h2, h3, h4 {
         margin-bottom: 0;
     }
 }
+
+/* Elan Imperial Section */
+.imperial {
+    padding: 6rem 5%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.imperial-text .title {
+    font-family: 'GFS Didot', serif;
+    font-size: 2.3rem;
+    color: #000;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.imperial-text p {
+    font-family: 'Poppins', sans-serif;
+    color: #666;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.imperial-image-container {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.imperial-image-container img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.imperial-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.play-button-overlay svg {
+    width: 35px;
+    height: 35px;
+    fill: #fff;
+}
+
+.imperial-image-container:hover .play-button-overlay {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translate(-50%, -50%) scale(1.1);
+}
