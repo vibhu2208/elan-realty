@@ -873,7 +873,7 @@ h1, h2, h3, h4 {
     background: linear-gradient(135deg, #222 0%, #000 100%);
     color: #fff;
     border: none;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .btn-dark:hover {
