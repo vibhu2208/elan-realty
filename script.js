@@ -50,4 +50,29 @@ document.addEventListener('DOMContentLoaded', function() {
     animatedElements.forEach(el => {
         observer.observe(el);
     });
+
+    // Video Modal Functionality
+    const openVideoButton = document.getElementById('open-video');
+    const closeVideoButton = document.getElementById('close-video');
+    const videoModal = document.getElementById('video-modal');
+    const youtubeVideo = document.getElementById('youtube-video');
+    const videoSrc = 'https://www.youtube.com/embed/umgQvzdaDcM?si=-JMWSyOyEp5mMFrQ&autoplay=1&mute=1';
+
+    openVideoButton.addEventListener('click', () => {
+        videoModal.classList.add('show');
+        youtubeVideo.src = videoSrc;
+    });
+
+    const closeModal = () => {
+        videoModal.classList.remove('show');
+        youtubeVideo.src = ''; // Stop the video
+    };
+
+    closeVideoButton.addEventListener('click', closeModal);
+
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            closeModal();
+        }
+    });
 });
