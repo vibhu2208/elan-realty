@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Intersection Observer for scroll animations
+    // Intersection Observer for scroll animations (about section)
     const animatedElements = document.querySelectorAll('.about-image img, .about-content .subtitle, .about-content .title, .about-content p, .services');
 
     const observer = new IntersectionObserver((entries) => {
@@ -50,6 +50,19 @@ document.addEventListener('DOMContentLoaded', function() {
     animatedElements.forEach(el => {
         observer.observe(el);
     });
+
+    // Intersection Observer for Segments cards reveal
+    const segmentCards = document.querySelectorAll('.segment-card');
+    const segmentsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                segmentsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    segmentCards.forEach(card => segmentsObserver.observe(card));
 
     // Video Modal Functionality
     const videoTriggers = document.querySelectorAll('.video-trigger');
