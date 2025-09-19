@@ -370,11 +370,13 @@ document.addEventListener('DOMContentLoaded', function() {
     function openLightbox(index) {
         currentIndex = index;
         lightboxImg.src = images[currentIndex];
-        lightbox.style.display = 'block';
+        lightbox.classList.add('active');
+        lightbox.style.display = 'flex'; // Ensure it shows
         document.body.style.overflow = 'hidden';
     }
 
     function closeLightbox() {
+        lightbox.classList.remove('active');
         lightbox.style.display = 'none';
         document.body.style.overflow = 'auto';
     }

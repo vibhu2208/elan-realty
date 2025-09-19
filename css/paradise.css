@@ -34,11 +34,70 @@
     position: relative;
 }
 
+/* Mobile Layout: Hamburger - Logo - Call Button */
+@media (max-width: 991px) {
+    .nav-container {
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .hamburger {
+        order: 1;
+        flex: 0 0 auto;
+    }
+    
+    .nav-logo {
+        order: 2;
+        flex: 1;
+        justify-content: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .nav-call-btn {
+        order: 3;
+        flex: 0 0 auto;
+    }
+    
+    .nav-menu {
+        order: 4;
+    }
+}
+
 /* Logo */
 .nav-logo {
     display: flex;
     align-items: center;
     z-index: 1001;
+}
+
+/* Mobile Call Button */
+.nav-call-btn {
+    display: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #bda780, #d4c4a0);
+    color: #121212;
+    text-decoration: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(189, 167, 128, 0.3);
+    z-index: 1001;
+}
+
+.nav-call-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(189, 167, 128, 0.4);
+}
+
+@media (max-width: 991px) {
+    .nav-call-btn {
+        display: flex;
+    }
 }
 
 .logo-img {
@@ -231,6 +290,7 @@
 @media (max-width: 991px) {
     .nav-container {
         padding: 0 2rem;
+        position: relative;
     }
     
     .nav-menu {
@@ -1380,6 +1440,8 @@
     
     .overlay-content {
         width: 95%;
+        min-height: 65%; /* Increase min-height for better content display */
+        padding: 1.5rem 1rem; /* Better padding */
     }
     
     .carousel-nav {
@@ -1491,7 +1553,7 @@
     display: none;
     position: fixed;
     z-index: 1000;
-    padding-top: 60px;
+    padding: 20px;
     left: 0;
     top: 0;
     width: 100%;
@@ -1501,11 +1563,19 @@
     backdrop-filter: blur(8px);
 }
 
+.lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .lightbox-content {
     margin: auto;
     display: block;
-    width: 80%;
+    width: 90%;
     max-width: 1200px;
+    max-height: 90vh;
+    object-fit: contain;
     animation-name: zoom;
     animation-duration: 0.6s;
 }
@@ -1517,13 +1587,14 @@
 
 .lightbox-close {
     position: absolute;
-    top: 15px;
-    right: 35px;
+    top: 20px;
+    right: 30px;
     color: #f1f1f1;
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;
     cursor: pointer;
+    z-index: 1001;
 }
 
 .lightbox-close:hover,
@@ -1537,25 +1608,37 @@
     cursor: pointer;
     position: absolute;
     top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -50px;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     font-weight: bold;
-    font-size: 20px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     user-select: none;
     -webkit-user-select: none;
+    z-index: 1002;
+}
+
+.lightbox-prev {
+    left: 20px;
 }
 
 .lightbox-next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+    right: 20px;
 }
 
 .lightbox-prev:hover, .lightbox-next:hover {
-    background-color: rgba(212, 175, 55, 0.8);
+    background: rgba(189, 167, 128, 0.9);
+    border-color: rgba(189, 167, 128, 1);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 15px rgba(189, 167, 128, 0.4);
 }
 
 /* Responsive Gallery */
@@ -1582,6 +1665,46 @@
     }
     .gallery-hero-item.thumb {
         height: 45vw;
+    }
+    
+    /* Mobile Lightbox Fixes */
+    .lightbox {
+        padding: 10px;
+    }
+    
+    .lightbox-content {
+        width: 95%;
+        max-height: 85vh;
+    }
+    
+    .lightbox-close {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+    
+    .lightbox-prev, .lightbox-next {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    .lightbox-prev {
+        left: 10px;
+    }
+    
+    .lightbox-next {
+        right: 10px;
+    }
+    
+    /* Fix highlight carousel last card positioning */
+    .carousel-track {
+        padding-right: 1rem; /* Add padding to prevent last card cutoff */
+    }
+    
+    .highlight-card {
+        min-width: calc(100% - 2rem); /* Ensure proper width */
+        margin-right: 0;
     }
 }
 
