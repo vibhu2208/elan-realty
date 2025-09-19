@@ -1286,7 +1286,7 @@
         font-size: 2rem;
     }
     
-    .card-image { height: 340px; }
+    .card-image { height: 400px; } /* Increased height for tablet */
     .overlay-content { min-height: 58%; padding: 1.5rem; }
     
     .card-title {
@@ -1345,7 +1345,7 @@
     }
     
     .card-image {
-        height: 300px;
+        height: 380px; /* Increased height for mobile */
     }
     
     .card-content {
@@ -1387,19 +1387,28 @@
     }
     
     /* Touch-friendly hover effects for mobile */
+    .highlight-card.mobile-active .card-overlay,
     .highlight-card:active .card-overlay {
         opacity: 1;
         visibility: visible;
     }
     
+    .highlight-card.mobile-active .overlay-content,
     .highlight-card:active .overlay-content {
         opacity: 1;
-        transform: translate(-50%, -50%);
+        transform: translateY(0);
     }
     
+    .highlight-card.mobile-active .card-title,
     .highlight-card:active .card-title {
         opacity: 0;
         transform: translateY(-10px);
+    }
+    
+    .highlight-card.mobile-active .highlight-details li,
+    .highlight-card:active .highlight-details li {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 

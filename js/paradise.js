@@ -149,28 +149,49 @@ document.addEventListener('DOMContentLoaded', function() {
     // Touch/swipe support for mobile
     let startX = 0;
     let endX = 0;
+    let startY = 0;
+    let endY = 0;
+    let isTouchingCard = false;
     
     function handleTouchStart(e) {
         startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        endX = startX;
+        endY = startY;
+        
+        // Check if touch started on a highlight card
+        isTouchingCard = e.target.closest('.highlight-card') !== null;
+        
         stopAutoPlay();
     }
     
     function handleTouchMove(e) {
         endX = e.touches[0].clientX;
+        endY = e.touches[0].clientY;
     }
     
     function handleTouchEnd() {
         const threshold = 50;
-        const diff = startX - endX;
+        const diffX = startX - endX;
+        const diffY = startY - endY;
         
-        if (Math.abs(diff) > threshold) {
-            if (diff > 0) {
+        // Only trigger carousel swipe if:
+        // 1. Not touching a card, OR
+        // 2. Horizontal swipe is much larger than vertical swipe (clear horizontal intent)
+        // 3. Movement exceeds threshold
+        const isHorizontalSwipe = Math.abs(diffX) > Math.abs(diffY) * 2;
+        const exceedsThreshold = Math.abs(diffX) > threshold;
+        
+        if (!isTouchingCard && exceedsThreshold && isHorizontalSwipe) {
+            if (diffX > 0) {
                 nextSlide();
             } else {
                 prevSlide();
             }
         }
         
+        // Reset flag
+        isTouchingCard = false;
         startAutoPlay();
     }
     
@@ -221,6 +242,94 @@ document.addEventListener('DOMContentLoaded', function() {
     cards.forEach(card => {
         observer.observe(card);
     });
+    
+    // Mobile touch functionality for highlight cards
+    function isMobileDevice() {
+        return window.innerWidth <= 768 || 'ontouchstart' in window;
+    }
+    
+    if (isMobileDevice()) {
+        cards.forEach(card => {
+            let touchStartTime = 0;
+            let cardTouchStartX = 0;
+            let cardTouchStartY = 0;
+            
+            card.addEventListener('touchstart', function(e) {
+                touchStartTime = Date.now();
+                cardTouchStartX = e.touches[0].clientX;
+                cardTouchStartY = e.touches[0].clientY;
+                
+                // Stop event propagation to prevent carousel touch handling
+                e.stopPropagation();
+            }, { passive: false });
+            
+            card.addEventListener('touchmove', function(e) {
+                // Prevent carousel from detecting movement on cards
+                e.stopPropagation();
+            }, { passive: false });
+            
+            card.addEventListener('touchend', function(e) {
+                const touchEndTime = Date.now();
+                const touchDuration = touchEndTime - touchStartTime;
+                
+                // Calculate movement to distinguish tap from swipe
+                const currentTouch = e.changedTouches[0];
+                const moveX = Math.abs(currentTouch.clientX - cardTouchStartX);
+                const moveY = Math.abs(currentTouch.clientY - cardTouchStartY);
+                const totalMovement = moveX + moveY;
+                
+                // Only trigger if it's a tap (short duration and minimal movement)
+                if (touchDuration < 300 && totalMovement < 10) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Remove active class from all cards
+                    cards.forEach(c => c.classList.remove('mobile-active'));
+                    
+                    // Toggle active class on current card
+                    if (!this.classList.contains('mobile-active')) {
+                        this.classList.add('mobile-active');
+                        
+                        // Remove active class after 5 seconds
+                        setTimeout(() => {
+                            this.classList.remove('mobile-active');
+                        }, 5000);
+                    }
+                }
+                
+                // Always stop propagation to prevent carousel handling
+                e.stopPropagation();
+            });
+            
+            // Also handle click events for better compatibility
+            card.addEventListener('click', function(e) {
+                if (isMobileDevice()) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Remove active class from all cards
+                    cards.forEach(c => c.classList.remove('mobile-active'));
+                    
+                    // Toggle active class on current card
+                    if (!this.classList.contains('mobile-active')) {
+                        this.classList.add('mobile-active');
+                        
+                        // Remove active class after 5 seconds
+                        setTimeout(() => {
+                            this.classList.remove('mobile-active');
+                        }, 5000);
+                    }
+                }
+            });
+        });
+        
+        // Close overlay when tapping outside
+        document.addEventListener('touchend', function(e) {
+            if (!e.target.closest('.highlight-card')) {
+                cards.forEach(card => card.classList.remove('mobile-active'));
+            }
+        }, { passive: true });
+    }
 });
 
 // Smooth scroll behavior for navigation links
