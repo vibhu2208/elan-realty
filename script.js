@@ -70,27 +70,66 @@ document.addEventListener('DOMContentLoaded', function() {
     const videoModal = document.getElementById('video-modal');
     const youtubeVideo = document.getElementById('youtube-video');
 
-    videoTriggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            const videoSrc = trigger.getAttribute('data-video-src');
-            youtubeVideo.src = videoSrc;
-            videoModal.classList.add('show');
+    // Handle the original video triggers if they exist
+    if (videoTriggers.length > 0 && closeVideoButton && videoModal && youtubeVideo) {
+        videoTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const videoSrc = trigger.getAttribute('data-video-src');
+                if (videoSrc) {
+                    youtubeVideo.src = videoSrc;
+                    videoModal.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
         });
-    });
 
-    const closeModal = () => {
-        videoModal.classList.remove('show');
-        youtubeVideo.src = ''; // Stop the video by clearing the src
-    };
+        const closeModal = () => {
+            videoModal.classList.remove('show');
+            youtubeVideo.src = ''; // Stop the video by clearing the src
+            document.body.style.overflow = '';
+        };
 
-    closeVideoButton.addEventListener('click', closeModal);
+        closeVideoButton.addEventListener('click', closeModal);
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                closeModal();
+            }
+        });
+    }
 
-    videoModal.addEventListener('click', (e) => {
-        // Close the modal if the user clicks on the background overlay
-        if (e.target === videoModal) {
-            closeModal();
-        }
-    });
+    // Handle the new video modal for project walkthrough
+    const projectVideoModal = document.getElementById('videoModal');
+    const projectCloseButton = document.getElementById('closeModal');
+    const projectYoutubeVideo = document.getElementById('youtubeVideo');
+    const playButton = document.getElementById('playVideo');
+    
+    if (projectVideoModal && projectCloseButton && projectYoutubeVideo && playButton) {
+        const closeProjectModal = () => {
+            projectVideoModal.style.display = 'none';
+            projectYoutubeVideo.src = '';
+            document.body.style.overflow = '';
+        };
+
+        playButton.addEventListener('click', () => {
+            projectVideoModal.style.display = 'flex';
+            projectYoutubeVideo.src = 'https://www.youtube.com/embed/dcdHuWN21QE?autoplay=1';
+            document.body.style.overflow = 'hidden';
+        });
+
+        projectCloseButton.addEventListener('click', closeProjectModal);
+        projectVideoModal.addEventListener('click', (e) => {
+            if (e.target === projectVideoModal) {
+                closeProjectModal();
+            }
+        });
+
+        // Close with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectVideoModal.style.display === 'flex') {
+                closeProjectModal();
+            }
+        });
+    }
 
     // Project Locations Interactivity
     const projectListItems = document.querySelectorAll('.pl-list li');
