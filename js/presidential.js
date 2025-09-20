@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
             hamburger.classList.toggle('active');
             
-            // Animate hamburger lines
+            // Animate hamburger lines animated line shuld be in there and should be animeated with the click of hamburger and should be removed when the hamburger is clicked and shuld show ithe hipe u[ f the ithe the veru good charachter a]
             const spans = hamburger.querySelectorAll('span');
             if (hamburger.classList.contains('active')) {
                 spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
