@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elan Shona Road - Coming Soon | ELAN REALTY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Specific styles for Shona Road page */
+        .shona-hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .shona-hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .shona-hero h1 {
+            font-family: 'GFS Didot', serif;
+            font-size: 4rem;
+            color: #bda780;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 3px;
+        }
+
+        .shona-hero h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #bda780, #d4c4a0);
+            color: #121212;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(189, 167, 128, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        .shona-hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(189, 167, 128, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(189, 167, 128, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(189, 167, 128, 0.4);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .shona-hero h1 {
+                font-size: 2.5rem;
+            }
+            .shona-hero h2 {
+                font-size: 1.8rem;
+            }
+            .coming-soon-badge {
+                font-size: 1rem;
+                padding: 0.8rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo"><img src="ellan-logo.png" alt="ELAN Realty" class="logo-img"></div>
+        <div class="nav-right">
+            <a href="#" class="contact-btn">Contact Us</a>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="nav-links">
+            <div class="nav-section">
+                <h3 class="nav-section-title">Residential</h3>
+                <div class="nav-section-links">
+                    <a href="presidential.html">Elan The Presidential</a>
+                    <a href="paradise.html">Elan Paradise</a>
+                </div>
+            </div>
+            <div class="nav-section">
+                <h3 class="nav-section-title">Commercial</h3>
+                <div class="nav-section-links">
+                    <a href="elan-imperial.html">Elan Imperial</a>
+                    <a href="emperor.html">Elan The Emperor</a>
+                </div>
+            </div>
+            <div class="nav-contact">
+                <a href="tel:9811750130" class="nav-phone">
+                    <i class="fas fa-phone"></i>
+                    <span>9811750130</span>
+                </a>
+                <a href="https://wa.me/919811750130" target="_blank" class="nav-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="shona-hero">
+        <div class="shona-hero-content">
+            <h1>ELAN SHONA ROAD</h1>
+            <h2>Coming Soon</h2>
+            <div class="coming-soon-badge">
+                Launching Soon
+            </div>
+        </div>
+        <div class="shona-hero-overlay"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="ellan-logo.png" alt="ELAN Realty" class="footer-logo-img">
+                </div>
+                <p class="footer-description">
+                    Elan Group redefines luxury in the world of real estate with the most exclusive residential, commercial & hospitality projects.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Projects</h3>
+                <ul class="footer-links">
+                    <li><a href="presidential.html">Elan The Presidential</a></li>
+                    <li><a href="paradise.html">Elan Paradise</a></li>
+                    <li><a href="elan-imperial.html">Elan Imperial</a></li>
+                    <li><a href="emperor.html">Elan The Emperor</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Contact Info</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 9811750130</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@elanrealty.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Gurugram, Haryana, India</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 ELAN REALTY. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <span class="separator">|</span>
+                    <a href="#">Terms of Service</a>
+                    <span class="separator">|</span>
+                    <a href="#">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="video-modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-video">&times;</span>
+            <div class="video-container">
+                <iframe id="youtube-video" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
