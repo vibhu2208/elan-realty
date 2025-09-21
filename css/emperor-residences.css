@@ -1,0 +1,238 @@
+/* Residences Showcase Section */
+.residences-showcase {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 50%, #0f0f0f 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.residences-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60"><defs><pattern id="grain" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="0.5" fill="%23ffffff" opacity="0.02"/></pattern></defs><rect width="60" height="60" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.residence-item {
+    padding: 8rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.residence-item:nth-child(even) {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.residence-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    padding: 0 3rem;
+}
+
+.residence-content {
+    padding-right: 2rem;
+}
+
+.residence-heading {
+    font-family: 'GFS Didot', serif;
+    font-size: 3.2rem;
+    color: #ffffff;
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.residence-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, #d4af37, #f4d03f);
+    margin-bottom: 2.5rem;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.residence-description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    line-height: 2;
+    color: #e0e0e0;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin-bottom: 0;
+}
+
+.residence-description .highlight {
+    color: #f4d03f;
+    font-weight: 400;
+}
+
+.residence-image-container {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.residence-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.residence-image:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+}
+
+/* Alternate Layout for Even Items */
+.residence-item:nth-child(even) .residence-container {
+    grid-template-columns: 1fr 1fr;
+    direction: rtl;
+}
+
+.residence-item:nth-child(even) .residence-content {
+    direction: ltr;
+    padding-right: 0;
+    padding-left: 2rem;
+}
+
+.residence-item:nth-child(even) .residence-image-container {
+    padding-left: 0;
+    padding-right: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .residence-container {
+        gap: 4rem;
+        padding: 0 2rem;
+    }
+    
+    .residence-heading {
+        font-size: 2.8rem;
+        letter-spacing: 3px;
+    }
+    
+    .residence-image {
+        height: 450px;
+    }
+}
+
+@media (max-width: 992px) {
+    .residence-item {
+        padding: 6rem 0;
+    }
+    
+    .residence-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    
+    .residence-item:nth-child(even) .residence-container {
+        direction: ltr;
+    }
+    
+    .residence-content {
+        padding-right: 0;
+        order: 1;
+    }
+    
+    .residence-item:nth-child(even) .residence-content {
+        padding-left: 0;
+        order: 1;
+    }
+    
+    .residence-image-container {
+        padding-left: 0;
+        order: 2;
+    }
+    
+    .residence-item:nth-child(even) .residence-image-container {
+        padding-right: 0;
+        order: 2;
+    }
+    
+    .residence-heading {
+        font-size: 2.4rem;
+        letter-spacing: 2px;
+    }
+    
+    .residence-divider {
+        margin: 0 auto 2rem;
+    }
+    
+    .residence-image {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .residence-item {
+        padding: 4rem 0;
+    }
+    
+    .residence-container {
+        padding: 0 1.5rem;
+        gap: 2rem;
+    }
+    
+    .residence-heading {
+        font-size: 2rem;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .residence-divider {
+        width: 60px;
+        margin-bottom: 2rem;
+    }
+    
+    .residence-description {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+    
+    .residence-image {
+        height: 350px;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .residence-item {
+        padding: 3rem 0;
+    }
+    
+    .residence-container {
+        padding: 0 1rem;
+    }
+    
+    .residence-heading {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .residence-divider {
+        width: 50px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .residence-description {
+        font-size: 0.95rem;
+    }
+    
+    .residence-image {
+        height: 300px;
+        border-radius: 12px;
+    }
+}

@@ -14,9 +14,56 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     
-    hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
+    // Function to close mobile menu
+    function closeMobileMenu() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+    
+    // Function to open mobile menu
+    function openMobileMenu() {
+        hamburger.classList.add('active');
+        navLinks.classList.add('active');
+    }
+    
+    // Toggle menu when hamburger is clicked
+    hamburger.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
+        if (hamburger.classList.contains('active')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        // Check if click is outside the mobile menu and hamburger
+        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            if (navLinks.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        }
+    });
+    
+    // Prevent menu from closing when clicking inside the menu
+    navLinks.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+    
+    // Close menu with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu when clicking on navigation links (except contact buttons)
+    const navSectionLinks = document.querySelectorAll('.nav-section-links a');
+    navSectionLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMobileMenu();
+        });
     });
 
     // Smooth scroll for anchor links
