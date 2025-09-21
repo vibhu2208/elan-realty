@@ -108,6 +108,89 @@
                 padding: 0.8rem 2rem;
             }
         }
+
+        /* Contact Form Styling */
+        .contact-form {
+            margin-top: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid rgba(189, 167, 128, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            resize: vertical;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #bda780;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(189, 167, 128, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #bda780, #d4c4a0);
+            color: #121212;
+            border: none;
+            padding: 0.9rem 1.5rem;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(189, 167, 128, 0.4);
+            background: linear-gradient(135deg, #d4c4a0, #bda780);
+        }
+
+        .form-notification {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            text-align: center;
+            display: none;
+        }
+
+        .form-notification.success {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+        }
+
+        .form-notification.error {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #f44336;
+            color: #f44336;
+        }
     </style>
 </head>
 <body>
@@ -156,7 +239,7 @@
     <section class="shona-hero">
         <div class="shona-hero-content">
             <h1>ELAN SHONA ROAD</h1>
-            <h2>Coming Soon</h2>
+            
             <div class="coming-soon-badge">
                 Launching Soon
             </div>
@@ -168,69 +251,75 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="ellan-logo.png" alt="ELAN Realty" class="footer-logo-img">
-                </div>
-                <p class="footer-description">
-                    Elan Group redefines luxury in the world of real estate with the most exclusive residential, commercial & hospitality projects.
-                </p>
-                <div class="footer-social">
+                <h3 class="footer-title">ABOUT US</h3>
+                <div class="footer-divider"></div>
+                <ul class="footer-links">
+                    <li><a href="#">About The Company</a></li>
+                    <li><a href="#">Elan Foundation</a></li>
+                    <li><a href="#">Elan Care</a></li>
+                    <li><a href="#">News & Events</a></li>
+                </ul>
+                <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             
             <div class="footer-section">
-                <h3 class="footer-title">Quick Links</h3>
+                <h3 class="footer-title">PROJECTS</h3>
+                <div class="footer-divider"></div>
                 <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Residential Projects</a></li>
+                    <li><a href="#">Commercial Projects</a></li>
+                    <li><a href="#">Upcoming Projects</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3 class="footer-title">Projects</h3>
+                <h3 class="footer-title">NEWS & EVENTS</h3>
+                <div class="footer-divider"></div>
                 <ul class="footer-links">
-                    <li><a href="presidential.html">Elan The Presidential</a></li>
-                    <li><a href="paradise.html">Elan Paradise</a></li>
-                    <li><a href="elan-imperial.html">Elan Imperial</a></li>
-                    <li><a href="emperor.html">Elan The Emperor</a></li>
+                    <li><a href="#">Awards & Accolades</a></li>
+                    <li><a href="#">News & Events</a></li>
+                    <li><a href="#">Media & PR</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h3 class="footer-title">Contact Info</h3>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+91 9811750130</span>
+                <h3 class="footer-title">CONTACT US</h3>
+                <div class="footer-divider"></div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@elanrealty.com</span>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Gurugram, Haryana, India</span>
+                    <div class="form-group">
+                        <textarea id="message" name="message" placeholder="Your Message (Optional)" rows="3"></textarea>
                     </div>
-                </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                <div class="form-notification" id="formNotification"></div>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <p>&copy; 2024 ELAN REALTY. All rights reserved.</p>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <span class="separator">|</span>
-                    <a href="#">Terms of Service</a>
-                    <span class="separator">|</span>
-                    <a href="#">Disclaimer</a>
-                </div>
+            <div class="footer-bottom-left">
+                <p>Copyright © 2025 <span class="brand-name">Elan Group</span> All Rights Reserved</p>
+            </div>
+            <div class="footer-bottom-right">
+                <a href="#">Privacy Policy</a>
+                <span class="separator">|</span>
+                <a href="#">Terms & Conditions</a>
+                <span class="separator">|</span>
+                <a href="#">Disclaimer</a>
             </div>
         </div>
     </footer>
@@ -246,5 +335,60 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Contact Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const notification = document.getElementById('formNotification');
+            
+            // Basic validation
+            if (!name || !phone) {
+                showNotification('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Phone number validation (basic)
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone.replace(/\D/g, '').slice(-10))) {
+                showNotification('Please enter a valid 10-digit phone number.', 'error');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                showNotification('Thank you! Your message has been sent successfully. We will contact you soon.', 'success');
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+        
+        function showNotification(message, type) {
+            const notification = document.getElementById('formNotification');
+            notification.textContent = message;
+            notification.className = `form-notification ${type}`;
+            notification.style.display = 'block';
+            
+            // Hide notification after 5 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+    </script>
 </body>
 </html>

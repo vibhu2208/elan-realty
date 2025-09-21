@@ -199,4 +199,62 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Contact Form Handling
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const notification = document.getElementById('formNotification');
+            
+            // Basic validation
+            if (!name || !phone) {
+                showNotification('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Phone number validation (basic)
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone.replace(/\D/g, '').slice(-10))) {
+                showNotification('Please enter a valid 10-digit phone number.', 'error');
+                return;
+            }
+            
+            // Simulate form submission
+            const submitBtn = document.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                showNotification('Thank you! Your message has been sent successfully. We will contact you soon.', 'success');
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    }
+    
+    function showNotification(message, type) {
+        const notification = document.getElementById('formNotification');
+        if (notification) {
+            notification.textContent = message;
+            notification.className = `form-notification ${type}`;
+            notification.style.display = 'block';
+            
+            // Hide notification after 5 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+    }
 });

@@ -173,6 +173,41 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Coming Soon Card -->
+                <div class="property-card coming-soon-card">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Elan Shona Road">
+                        <div class="property-overlay"></div>
+                        <div class="coming-soon-overlay">
+                            <span class="coming-soon-text">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-logo">
+                            <img src="ellan-logo.png" alt="Elan Shona Road Logo">
+                        </div>
+                        <h4 class="property-name">Elan Shona Road</h4>
+                        <p class="property-location">Shona Road, Gurugram</p>
+                        <p class="property-tagline">Luxury Redefined</p>
+                        <div class="property-features">
+                            <span class="feature-tag">Premium Residences</span>
+                            <span class="feature-tag">Modern Amenities</span>
+                            <span class="feature-tag">Prime Location</span>
+                        </div>
+                        <div class="property-actions">
+                            <a href="elan-shona-road.html" class="btn btn-primary">Learn More</a>
+                            <div class="contact-icons">
+                                <a href="tel:9811750130" class="contact-icon phone-icon" title="Call Now">
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                                <a href="https://wa.me/919811750130" target="_blank" class="contact-icon whatsapp-icon" title="WhatsApp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -417,11 +452,19 @@
             <div class="footer-section">
                 <h3 class="footer-title">CONTACT US</h3>
                 <div class="footer-divider"></div>
-                <div class="contact-info">
-                    <p>15th Floor, Two Horizon Centre,<br>Golf Course Rd, DLF Phase 5,<br>Sector 43, Gurugram</p>
-                    <p class="contact-detail">Call : +91 1244101100</p>
-                    <p class="contact-detail">Email : info@elanlimited.com</p>
-                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                <div class="form-notification" id="formNotification"></div>
             </div>
         </div>
         
