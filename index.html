@@ -20,7 +20,7 @@
         </div>
         <div class="logo"><img src="ellan-logo.png" alt="ELAN Realty" class="logo-img"></div>
         <div class="nav-right">
-            <a href="#" class="contact-btn">Contact Us</a>
+            <a href="#" class="contact-btn" onclick="openContactPopup()">Contact Us</a>
         </div>
         
         <!-- Mobile Menu -->
@@ -28,15 +28,15 @@
             <div class="nav-section">
                 <h3 class="nav-section-title">Residential</h3>
                 <div class="nav-section-links">
-                    <a href="presidential.html">Elan The Presidential</a>
-                    <a href="paradise.html">Elan Paradise</a>
+                    <a href="elan-presidential/presidential.html">Elan The Presidential</a>
+                    <a href="paradise/paradise.html">Elan Paradise</a>
                 </div>
             </div>
             <div class="nav-section">
                 <h3 class="nav-section-title">Commercial</h3>
                 <div class="nav-section-links">
-                    <a href="elan-imperial.html">Elan Imperial</a>
-                    <a href="emperor.html">Elan The Emperor</a>
+                    <a href="elan-imperial/elan-imperial.html">Elan Imperial</a>
+                    <a href="elan-emperor/emperor.html">Elan The Emperor</a>
                 </div>
             </div>
             <div class="nav-contact">
@@ -57,7 +57,7 @@
         <div class="hero-content">
             <h2 class="subtitle">12 YEARS OF BUILDING THE FUTURE</h2>
             <h1 class="title">ELAN WORLD</h1>
-            <button class="cta-button">Discover More →</button>
+            <button class="cta-button" onclick="scrollToSegments()">Discover More →</button>
         </div>
     </section>
 
@@ -99,7 +99,7 @@
     </section>
 
     <!-- Segments Section: Residential & Commercial -->
-    <section class="segments">
+    <section class="segments" id="segments-section">
         <div class="segments-header">
             <p class="segments-tagline">OUR PORTFOLIO</p>
             <h2 class="segments-title">Explore Our Segments</h2>
@@ -130,7 +130,7 @@
                             <span class="feature-tag">Green Landscapes</span>
                         </div>
                         <div class="property-actions">
-                            <a href="presidential.html" class="btn btn-primary">Explore Now</a>
+                            <a href="elan-presidential/presidential.html" class="btn btn-primary">Explore Now</a>
                             <div class="contact-icons">
                                 <a href="tel:9811750130" class="contact-icon phone-icon" title="Call Now">
                                     <i class="fas fa-phone"></i>
@@ -161,7 +161,7 @@
                             <span class="feature-tag">Concierge Services</span>
                         </div>
                         <div class="property-actions">
-                            <a href="emperor.html" class="btn btn-primary">Explore Now</a>
+                            <a href="elan-emperor/emperor.html" class="btn btn-primary">Explore Now</a>
                             <div class="contact-icons">
                                 <a href="tel:9811750130" class="contact-icon phone-icon" title="Call Now">
                                     <i class="fas fa-phone"></i>
@@ -236,7 +236,7 @@
                             <span class="feature-tag">Entertainment Complex</span>
                         </div>
                         <div class="property-actions">
-                            <a href="elan-imperial.html" class="btn btn-primary">Explore Now</a>
+                            <a href="elan-imperial/elan-imperial.html" class="btn btn-primary">Explore Now</a>
                             <div class="contact-icons">
                                 <a href="tel:9811750130" class="contact-icon phone-icon" title="Call Now">
                                     <i class="fas fa-phone"></i>
@@ -267,7 +267,7 @@
                             <span class="feature-tag">Gourmet Dining</span>
                         </div>
                         <div class="property-actions">
-                            <a href="paradise.html" class="btn btn-primary">Explore Now</a>
+                            <a href="paradise/paradise.html" class="btn btn-primary">Explore Now</a>
                             <div class="contact-icons">
                                 <a href="tel:9811750130" class="contact-icon phone-icon" title="Call Now">
                                     <i class="fas fa-phone"></i>
@@ -353,7 +353,7 @@
                     <h3 class="pl-card-title">Elan Imperial</h3>
                     <p class="pl-card-location">SECTOR 82, GURUGRAM</p>
                     <div class="pl-card-buttons">
-                        <a href="presidential.html" class="btn btn-dark">Discover More</a>
+                        <a href="elan-imperial/elan-imperial.html" class="btn btn-dark">Discover More</a>
                         <a href="#" class="btn btn-light">Locate Us</a>
                     </div>
                 </div>
@@ -362,7 +362,7 @@
                     <h3 class="pl-card-title">Elan The Presidential</h3>
                     <p class="pl-card-location">Sector 106, Gurugram</p>
                     <div class="pl-card-buttons">
-                        <a href="presidential.html" class="btn btn-dark">Discover More</a>
+                        <a href="elan-presidential/presidential.html" class="btn btn-dark">Discover More</a>
                         <a href="#" class="btn btn-light">Locate Us</a>
                     </div>
                 </div>
@@ -371,7 +371,7 @@
                     <h3 class="pl-card-title">Elan Paradise</h3>
                     <p class="pl-card-location">SECTOR 50, GURUGRAM</p>
                     <div class="pl-card-buttons">
-                        <a href="paradise.html" class="btn btn-dark">Discover More</a>
+                        <a href="paradise/paradise.html" class="btn btn-dark">Discover More</a>
                         <a href="#" class="btn btn-light">Locate Us</a>
                     </div>
                 </div>
@@ -380,7 +380,7 @@
                     <h3 class="pl-card-title">Elan Emperor</h3>
                     <p class="pl-card-location">SECTOR 106, GURUGRAM</p>
                     <div class="pl-card-buttons">
-                        <a href="emperor.html" class="btn btn-dark">Discover More</a>
+                        <a href="elan-emperor/emperor.html" class="btn btn-dark">Discover More</a>
                         <a href="#" class="btn btn-light">Locate Us</a>
                     </div>
                 </div>
@@ -410,61 +410,64 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 class="footer-title">ABOUT US</h3>
-                <div class="footer-divider"></div>
-                <ul class="footer-links">
-                    <li><a href="#">About The Company</a></li>
-                    <li><a href="#">Elan Foundation</a></li>
-                    <li><a href="#">Elan Care</a></li>
-                    <li><a href="#">News & Events</a></li>
-                </ul>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        <div class="footer-content-new">
+            <div class="footer-left-new">
+                <!-- <div class="trusted-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Trusted by 10,000+ Customers</span>
+                </div> -->
+                <h2 class="footer-main-title">Why Choose Elan?</h2>
+                <div class="assistance-bar">
+                    <div class="assistance-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="assistance-text">
+                        <p class="assistance-title">Need Immediate Assistance?</p>
+                        <p class="assistance-subtitle">Call our property experts directly</p>
+                    </div>
+                    <a href="tel:+919811750130" class="assistance-number">+91 98117-50130</a>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <h4 class="feature-title">100% Secure</h4>
+                        <p class="feature-description">Your data is protected with bank-level security.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-clock feature-icon"></i>
+                        <h4 class="feature-title">Quick Response</h4>
+                        <p class="feature-description">Get a callback within minutes.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-users feature-icon"></i>
+                        <h4 class="feature-title">Expert Guidance</h4>
+                        <p class="feature-description">Certified property consultants at your service.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-star feature-icon"></i>
+                        <h4 class="feature-title">Premium Service</h4>
+                        <p class="feature-description">Exclusive deals & insights on luxury properties.</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-section">
-                <h3 class="footer-title">PROJECTS</h3>
-                <div class="footer-divider"></div>
-                <ul class="footer-links">
-                    <li><a href="#">Residential Projects</a></li>
-                    <li><a href="#">Commercial Projects</a></li>
-                    <li><a href="#">Upcoming Projects</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3 class="footer-title">NEWS & EVENTS</h3>
-                <div class="footer-divider"></div>
-                <ul class="footer-links">
-                    <li><a href="#">Awards & Accolades</a></li>
-                    <li><a href="#">News & Events</a></li>
-                    <li><a href="#">Media & PR</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h3 class="footer-title">CONTACT US</h3>
-                <div class="footer-divider"></div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <span>Send Message</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-                <div class="form-notification" id="formNotification"></div>
+            <div class="footer-right-new">
+                <div class="footer-form-container">
+                    <h3 class="footer-form-title">Enquire Now</h3>
+                    <div class="footer-divider"></div>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="form-notification" id="formNotification"></div>
+                </div>
             </div>
         </div>
         
@@ -488,6 +491,38 @@
             <span class="close-button" id="close-video">&times;</span>
             <div class="video-container">
                 <iframe id="youtube-video" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Popup Modal -->
+    <div class="contact-popup-overlay" id="contactPopupOverlay">
+        <div class="contact-popup">
+            <div class="popup-header">
+                <h3 class="popup-title">Get In Touch</h3>
+                <button class="popup-close" onclick="closeContactPopup()">&times;</button>
+            </div>
+            <div class="popup-content">
+                <p class="popup-subtitle">Let's discuss your dream property</p>
+                <form class="popup-form" id="popupContactForm">
+                    <div class="popup-form-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="popupName" name="name" placeholder="Your Name" required>
+                        </div>
+                    </div>
+                    <div class="popup-form-group">
+                        <div class="input-wrapper">
+                            <i class="fas fa-phone input-icon"></i>
+                            <input type="tel" id="popupPhone" name="phone" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="popup-submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+                <div class="popup-notification" id="popupNotification"></div>
             </div>
         </div>
     </div>

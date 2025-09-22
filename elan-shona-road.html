@@ -46,19 +46,276 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
-        .coming-soon-badge {
-            display: inline-block;
+        /* Navigation Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: transparent;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 1.5rem 0;
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar.scrolled {
+            background: rgba(18, 18, 18, 0.95);
+            padding: 0.8rem 0;
+            height: 80px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(189, 167, 128, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 2rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            z-index: 1001;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .logo-img {
+            height: 50px;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: #ffffff;
+            transition: all 0.3s ease;
+            transform-origin: left center;
+        }
+
+        .navbar.scrolled .hamburger .bar {
+            background: #ffffff;
+        }
+
+        .nav-call-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, #bda780, #d4c4a0);
             color: #121212;
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            border-radius: 50%;
             font-size: 1.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 10px 30px rgba(189, 167, 128, 0.4);
-            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+            z-index: 1001;
+            box-shadow: 0 4px 15px rgba(189, 167, 128, 0.3);
+        }
+
+        .nav-call-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(189, 167, 128, 0.4);
+        }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(189, 167, 128, 0.1);
+            padding: 1rem 0;
+        }
+
+        .nav-menu.active {
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-item a:hover {
+            color: #bda780;
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: auto;
+        }
+
+        .btn-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #bda780, #d4c4a0);
+            color: #121212;
+            text-decoration: none;
+            padding: 0.65rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(189, 167, 128, 0.3);
+        }
+
+        .btn-phone:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(189, 167, 128, 0.4);
+        }
+
+        .btn-enquire {
+            display: inline-flex;
+            align-items: center;
+            background: transparent;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.65rem 1.5rem;
+            border: 2px solid #bda780;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-enquire:hover {
+            background: #bda780;
+            color: #121212;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 991px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-call-btn {
+                display: none;
+            }
+
+            .navbar {
+                padding: 1rem 0;
+            }
+
+            .navbar.scrolled {
+                padding: 0.6rem 0;
+            }
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background: rgba(18, 18, 18, 0.98);
+                padding: 2rem;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                display: block;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .nav-item a {
+                font-size: 1.1rem;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(189, 167, 128, 0.1);
+                width: 100%;
+            }
+
+            .nav-cta {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 2rem;
+                margin-left: 0;
+                gap: 1rem;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: rotate(45deg) translate(4px, -1px);
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: rotate(-45deg) translate(4px, 1px);
+            }
+        }
+
+        @media (max-width: 575px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .logo-img {
+                height: 50px;
+            }
+
+            .navbar.scrolled .logo-img {
+                height: 45px;
+            }
+
+            .nav-menu {
+                top: 70px;
+            }
         }
 
         .shona-hero-overlay {
@@ -191,46 +448,246 @@
             border: 1px solid #f44336;
             color: #f44336;
         }
+
+        /* Footer Styling */
+        .footer {
+            background: #121212;
+            color: #a0a0a0;
+            padding: 4rem 0 0 0;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .footer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-divider {
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #bda780, #d4c4a0);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #bda780;
+            padding-left: 5px;
+        }
+
+        /* Social Media Icons */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 35px;
+            height: 35px;
+            background: #222;
+            border: 1px solid #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .social-link.facebook:hover {
+            background-color: #1877F2;
+            border-color: #1877F2;
+        }
+        .social-link.instagram:hover {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            border: none;
+        }
+        .social-link.linkedin:hover {
+            background-color: #0A66C2;
+            border-color: #0A66C2;
+        }
+        .social-link.twitter:hover {
+            background-color: #1DA1F2;
+            border-color: #1DA1F2;
+        }
+        .social-link.youtube:hover {
+            background-color: #FF0000;
+            border-color: #FF0000;
+        }
+
+        /* Footer Bottom Bar */
+        .footer-bottom {
+            border-top: 1px solid #333;
+            margin-top: 3rem;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            background: #121212;
+        }
+
+        .footer-bottom-left p {
+            font-size: 0.85rem;
+            color: #777;
+            margin: 0;
+        }
+
+        .footer-bottom-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-right a {
+            color: #777;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-right a:hover {
+            color: #bda780;
+        }
+
+        .separator {
+            color: #555;
+        }
+
+        .brand-name {
+            color: #bda780;
+            font-weight: 500;
+        }
+
+        /* Responsive Footer Styles */
+        @media (max-width: 992px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 0 1rem 2rem 1rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 1rem;
+            }
+
+            .footer-bottom-right {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                padding: 3rem 0 0 0;
+            }
+            .footer-content {
+                padding: 0 1rem 2rem 1rem;
+            }
+            .footer-section {
+                text-align: center;
+            }
+            .footer-divider {
+                margin: 0 auto 1rem auto;
+            }
+            .social-links {
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="logo"><img src="ellan-logo.png" alt="ELAN Realty" class="logo-img"></div>
-        <div class="nav-right">
-            <a href="#" class="contact-btn">Contact Us</a>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="nav-links">
-            <div class="nav-section">
-                <h3 class="nav-section-title">Residential</h3>
-                <div class="nav-section-links">
-                    <a href="presidential.html">Elan The Presidential</a>
-                    <a href="paradise.html">Elan Paradise</a>
-                </div>
+        <div class="nav-container">
+            <!-- Mobile Menu Toggle - Left Side -->
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-            <div class="nav-section">
-                <h3 class="nav-section-title">Commercial</h3>
-                <div class="nav-section-links">
-                    <a href="elan-imperial.html">Elan Imperial</a>
-                    <a href="emperor.html">Elan The Emperor</a>
+
+            <!-- Logo - Center -->
+            <a href="../index.html" class="nav-logo">
+                <img src="ellan-logo.png" alt="ELAN Realty" class="logo-img">
+            </a>
+
+            <!-- Call Button - Right Side -->
+            <a href="tel:+919811750130" class="nav-call-btn">
+                <i class="fas fa-phone"></i>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#highlights" class="nav-link">Highlights</a></li>
+                    <li class="nav-item"><a href="#amenities" class="nav-link">Amenities</a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="#location" class="nav-link">Location</a></li>
+                </ul>
+
+                <div class="nav-cta">
+                    <a href="tel:+919811750130" class="btn-phone">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 98117 50130</span>
+                    </a>
+                    <a href="#contact" class="btn-enquire">Enquire Now</a>
                 </div>
-            </div>
-            <div class="nav-contact">
-                <a href="tel:9811750130" class="nav-phone">
-                    <i class="fas fa-phone"></i>
-                    <span>9811750130</span>
-                </a>
-                <a href="https://wa.me/919811750130" target="_blank" class="nav-whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </a>
             </div>
         </div>
     </nav>
@@ -377,13 +834,83 @@
                 submitBtn.disabled = false;
             }, 2000);
         });
-        
+    </script>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile menu toggle
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!navbar.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+
+            // Close mobile menu on link click
+            const navLinkItems = document.querySelectorAll('.nav-item a, .btn-phone, .btn-enquire');
+            navLinkItems.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+
+        // Contact Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const notification = document.getElementById('formNotification');
+
+            // Basic validation
+            if (!name || !phone) {
+                showNotification('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            // Phone number validation (basic)
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone.replace(/\D/g, '').slice(-10))) {
+                showNotification('Please enter a valid 10-digit phone number.', 'error');
+                return;
+            }
+
+            // Show success message (mock response for development)
+            showNotification('Thank you! Your message has been sent successfully. We will contact you soon.', 'success');
+
+            // Reset form
+            document.getElementById('contactForm').reset();
+        });
+
         function showNotification(message, type) {
             const notification = document.getElementById('formNotification');
             notification.textContent = message;
             notification.className = `form-notification ${type}`;
             notification.style.display = 'block';
-            
+
             // Hide notification after 5 seconds
             setTimeout(() => {
                 notification.style.display = 'none';

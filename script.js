@@ -66,15 +66,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Smooth scroll for anchor links
+    // Smooth scroll for anchor links (ignore bare '#')
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            // If href is just '#' or empty, do nothing here and let other handlers run
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
             if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
@@ -223,24 +224,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Simulate form submission
+            // Submit to form.php
             const submitBtn = document.querySelector('.submit-btn');
             const originalText = submitBtn.innerHTML;
             
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
             
-            // Simulate API call delay
-            setTimeout(() => {
-                showNotification('Thank you! Your message has been sent successfully. We will contact you soon.', 'success');
-                
-                // Reset form
-                contactForm.reset();
-                
-                // Reset button
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('mobile', phone);
+            formData.append('project', 'Elan Realty');
+            
+            // Send AJAX request
+            fetch('./form.php', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: formData
+            })
+            .then(resp => {
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                return resp.text();
+            })
+            .then(txt => {
+                const isSuccess = /^\s*Thank You/i.test(txt);
+                if (isSuccess) {
+                    showNotification(txt, 'success');
+                    contactForm.reset();
+                } else {
+                    showNotification(txt || 'Submission failed. Please try again.', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('An error occurred. Please try again.', 'error');
+            })
+            .finally(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-            }, 2000);
+            });
         });
     }
     
@@ -256,5 +281,215 @@ document.addEventListener('DOMContentLoaded', function() {
                 notification.style.display = 'none';
             }, 5000);
         }
+    }
+
+    // Contact Popup Functions
+    window.openContactPopup = function() {
+        const overlay = document.getElementById('contactPopupOverlay');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeContactPopup = function() {
+        const overlay = document.getElementById('contactPopupOverlay');
+        overlay.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        
+        // Reset form
+        const form = document.getElementById('popupContactForm');
+        if (form) {
+            form.reset();
+        }
+        
+        // Hide notification
+        const notification = document.getElementById('popupNotification');
+        if (notification) {
+            notification.style.display = 'none';
+        }
+    };
+
+    // Close popup when clicking outside
+    document.addEventListener('click', function(e) {
+        const overlay = document.getElementById('contactPopupOverlay');
+        if (e.target === overlay) {
+            closeContactPopup();
+        }
+    });
+
+    // Close popup with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeContactPopup();
+        }
+    });
+
+    // Popup Contact Form Handling
+    const popupContactForm = document.getElementById('popupContactForm');
+    if (popupContactForm) {
+        popupContactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('popupName').value.trim();
+            const phone = document.getElementById('popupPhone').value.trim();
+            
+            // Basic validation
+            if (!name || !phone) {
+                showPopupNotification('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            // Phone number validation (basic)
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone.replace(/\D/g, '').slice(-10))) {
+                showPopupNotification('Please enter a valid 10-digit phone number.', 'error');
+                return;
+            }
+            
+            // Submit to form.php
+            const submitBtn = document.querySelector('.popup-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('mobile', phone);
+            formData.append('project', 'Elan Realty');
+            
+            // Send AJAX request
+            fetch('./form.php', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: formData
+            })
+            .then(resp => {
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                return resp.text();
+            })
+            .then(txt => {
+                const isSuccess = /^\s*Thank You/i.test(txt);
+                if (isSuccess) {
+                    showPopupNotification(txt, 'success');
+                    // Close popup after success
+                    setTimeout(() => {
+                        closeContactPopup();
+                    }, 2000);
+                } else {
+                    showPopupNotification(txt || 'Submission failed. Please try again.', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showPopupNotification('An error occurred. Please try again.', 'error');
+            })
+            .finally(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+
+    function showPopupNotification(message, type) {
+        const notification = document.getElementById('popupNotification');
+        if (notification) {
+            notification.textContent = message;
+            notification.className = `popup-notification ${type}`;
+            notification.style.display = 'block';
+            
+            // Hide notification after 5 seconds
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+    }
+
+    // Smooth Scroll to Segments Section
+    window.scrollToSegments = function() {
+        const segmentsSection = document.getElementById('segments-section');
+        if (segmentsSection) {
+            segmentsSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+
+    // Footer form on project pages (e.g., elan-emperor/emperor.html) -> submit to form.php
+    function getProjectNameFromPath() {
+        const p = (location.pathname || '').toLowerCase();
+        if (p.includes('elan-emperor') || p.includes('emperor')) return 'Elan Emperor';
+        if (p.includes('elan-presidential') || p.includes('presidential')) return 'Elan The Presidential';
+        if (p.includes('paradise')) return 'Elan Paradise';
+        if (p.includes('elan-imperial') || p.includes('imperial')) return 'Elan Imperial';
+        if (p.includes('elan-shona-road') || p.includes('shona')) return 'Elan Shona Road';
+        return 'Elan Realty';
+    }
+
+    const footerContactForm = document.getElementById('footerContactForm');
+    if (footerContactForm) {
+        footerContactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nameEl = document.getElementById('footerName');
+            const phoneEl = document.getElementById('footerPhone');
+            const name = nameEl ? nameEl.value.trim() : '';
+            const phone = phoneEl ? phoneEl.value.trim() : '';
+
+            if (!name || !phone) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone.replace(/\D/g, '').slice(-10))) {
+                alert('Please enter a valid 10-digit phone number.');
+                return;
+            }
+
+            const submitBtn = footerContactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn ? submitBtn.innerHTML : '';
+            if (submitBtn) {
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+            }
+
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('mobile', phone);
+            formData.append('project', getProjectNameFromPath());
+
+            fetch('../form.php', {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                body: formData
+            })
+            .then(resp => {
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                return resp.text();
+            })
+            .then(txt => {
+                const isSuccess = /^\s*Thank You/i.test(txt);
+                if (isSuccess) {
+                    alert('Thank you! We will contact you shortly.');
+                    footerContactForm.reset();
+                } else {
+                    alert(txt || 'Submission failed. Please try again.');
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('An error occurred. Please try again.');
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        });
     }
 });

@@ -133,7 +133,8 @@
     }
     
     .residence-container {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 3rem;
         text-align: center;
     }
