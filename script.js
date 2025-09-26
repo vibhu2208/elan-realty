@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (p.includes('elan-presidential') || p.includes('presidential')) return 'Elan The Presidential';
         if (p.includes('paradise')) return 'Elan Paradise';
         if (p.includes('elan-imperial') || p.includes('imperial')) return 'Elan Imperial';
-        if (p.includes('elan-shona-road') || p.includes('shona')) return 'Elan Shona Road';
+        if (p.includes('elan-sohna-road') || p.includes('sohna')) return 'Elan sohna Road';
         return 'Elan Realty';
     }
 

@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/imperial.css">
+    <link rel="stylesheet" href="../css/footer-styles.css">
 </head>
 <body>
     <!-- Premium Navigation -->
@@ -233,98 +234,64 @@
  
 
     <!-- Footer -->
-    <footer class="footer" id="contact">
-        <div class="footer-content">
-            <!-- Left Side - Company Information -->
-            <div class="footer-left">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="../ellan-logo.png" alt="ELAN Realty" class="footer-logo-img">
-                        <span class="footer-brand-name">ELAN GROUP</span>
+    <footer class="footer">
+        <div class="footer-content-new">
+            <div class="footer-left-new">
+                <!-- <div class="trusted-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Trusted by 10,000+ Customers</span>
+                </div> -->
+                <h2 class="footer-main-title">Why Choose Elan?</h2>
+                <div class="assistance-bar">
+                    <div class="assistance-icon">
+                        <i class="fas fa-phone-alt"></i>
                     </div>
-                    <p class="footer-description">
-                        Creating exceptional real estate experiences with premium commercial and residential developments across India.
-                    </p>
+                    <div class="assistance-text">
+                        <p class="assistance-title">Need Immediate Assistance?</p>
+                        <p class="assistance-subtitle">Call our property experts directly</p>
+                    </div>
+                    <a href="tel:+919811750130" class="assistance-number">+91 98117-50130</a>
                 </div>
-
-                <div class="footer-sections-grid">
-                    <div class="footer-section">
-                        <h3 class="footer-title">ABOUT US</h3>
-                        <div class="footer-divider"></div>
-                        <ul class="footer-links">
-                            <li><a href="#">About The Company</a></li>
-                            <li><a href="#">Elan Foundation</a></li>
-                            <li><a href="#">Elan Care</a></li>
-                            <li><a href="#">News & Events</a></li>
-                        </ul>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <h4 class="feature-title">100% Secure</h4>
+                        <p class="feature-description">Your data is protected with bank-level security.</p>
                     </div>
-                    
-                    <div class="footer-section">
-                        <h3 class="footer-title">PROJECTS</h3>
-                        <div class="footer-divider"></div>
-                        <ul class="footer-links">
-                            <li><a href="../imperial.html">Elan Imperial</a></li>
-                            <li><a href="../paradise/paradise.html">Elan Paradise</a></li>
-                            <li><a href="../presidential.html">Elan Presidential</a></li>
-                            <li><a href="../elan-emperor/emperor.html">Elan Emperor</a></li>
-                        </ul>
+                    <div class="feature-card">
+                        <i class="fas fa-clock feature-icon"></i>
+                        <h4 class="feature-title">Quick Response</h4>
+                        <p class="feature-description">Get a callback within minutes.</p>
                     </div>
-                    
-                    <div class="footer-section">
-                        <h3 class="footer-title">QUICK LINKS</h3>
-                        <div class="footer-divider"></div>
-                        <ul class="footer-links">
-                            <li><a href="#">Awards & Accolades</a></li>
-                            <li><a href="#">Media & PR</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
+                    <div class="feature-card">
+                        <i class="fas fa-users feature-icon"></i>
+                        <h4 class="feature-title">Expert Guidance</h4>
+                        <p class="feature-description">Certified property consultants at your service.</p>
                     </div>
-                </div>
-
-                <div class="footer-contact-info">
-                    <div class="contact-item-footer">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>15th Floor, Two Horizon Centre, Golf Course Rd, Sector 43, Gurugram</span>
+                    <div class="feature-card">
+                        <i class="fas fa-star feature-icon"></i>
+                        <h4 class="feature-title">Premium Service</h4>
+                        <p class="feature-description">Exclusive deals & insights on luxury properties.</p>
                     </div>
-                    <div class="contact-item-footer">
-                        <a href="tel:8527134491" class="footer-phone-link"><i class="fas fa-phone"></i> 8527134491</a>
-                    </div>
-                    <div class="contact-item-footer">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@elanlimited.com</span>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
-            <!-- Right Side - Contact Form -->
-            <div class="footer-right">
-                <div class="footer-contact-form">
-                    <h3 class="footer-title">GET IN TOUCH</h3>
+            <div class="footer-right-new">
+                <div class="footer-form-container">
+                    <h3 class="footer-form-title">Enquire Now</h3>
                     <div class="footer-divider"></div>
-                    <p class="form-description">Ready to explore premium real estate opportunities? Let's connect!</p>
-                    <form class="footer-form" id="footerContactForm">
+                    <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="footerName" name="name" placeholder="Your Name" required>
-                            <i class="fas fa-user form-icon"></i>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="tel" id="footerPhone" name="phone" placeholder="Phone Number" required>
-                            <i class="fas fa-phone form-icon"></i>
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
                         </div>
-                        <button type="submit" class="footer-submit-btn">
+                        <button type="submit" class="submit-btn">
                             <span>Send Message</span>
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>
+                    <div class="form-notification" id="formNotification"></div>
                 </div>
             </div>
         </div>
