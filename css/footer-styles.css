@@ -11,9 +11,9 @@
 .footer-left-new, .footer-right-new {
     color: #dddddd;
 }
-/* .footer-main-title{
+.footer-main-title{
     color: #111;
-} */
+}
 .trusted-badge {
     display: inline-flex;
     align-items: center;
