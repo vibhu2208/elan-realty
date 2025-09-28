@@ -493,3 +493,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Toggle content function for See More button
+function toggleContent() {
+    const additionalContent = document.getElementById('additionalContent');
+    const seeMoreBtn = document.getElementById('seeMoreBtn');
+    const btnText = seeMoreBtn.querySelector('.btn-text');
+    const btnIcon = seeMoreBtn.querySelector('.btn-icon');
+    
+    if (additionalContent.style.display === 'none') {
+        additionalContent.style.display = 'block';
+        btnText.textContent = 'See Less';
+        btnIcon.classList.add('fa-chevron-up');
+        btnIcon.classList.remove('fa-chevron-down');
+        seeMoreBtn.classList.add('expanded');
+    } else {
+        additionalContent.style.display = 'none';
+        btnText.textContent = 'See More';
+        btnIcon.classList.add('fa-chevron-down');
+        btnIcon.classList.remove('fa-chevron-up');
+        seeMoreBtn.classList.remove('expanded');
+    }
+}
