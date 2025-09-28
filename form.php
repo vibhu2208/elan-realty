@@ -2,9 +2,9 @@
 // Basic contact form handler with DB insert and email
 // Progressive enhancement support: returns plain text when X-Requested-With is sent
 
-$subject = 'DM - IREO GrandHYATT enquiry';
+$subject = 'DM - Elan Realty Enquiry';
 $emailadd = 'query@aadharhomes.com';
-$default_project = 'IREO GrandHYATT';
+$default_project = 'Elan Realty';
 
 // Destination after non-JS submit
 $redirect_url = 'index.html';
