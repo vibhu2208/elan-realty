@@ -1,0 +1,87 @@
+/* See More Button Styles */
+.see-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 2px solid #BDA780;
+    color: #BDA780;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.see-more-btn:hover {
+    background: #BDA780;
+    color: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(189, 167, 128, 0.3);
+}
+
+.see-more-btn .btn-icon {
+    transition: transform 0.3s ease;
+    font-size: 0.8rem;
+}
+
+.see-more-btn.expanded .btn-icon {
+    transform: rotate(180deg);
+}
+
+.see-more-btn .btn-text {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Additional content styles */
+.additional-content {
+    margin-top: 1rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hidden content - completely hidden from frontend */
+.hidden-content {
+    display: none !important;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+
+/* Mobile responsive styles for see more button */
+@media (max-width: 768px) {
+    .see-more-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .see-more-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        gap: 0.4rem;
+    }
+    
+    .see-more-btn .btn-icon {
+        font-size: 0.7rem;
+    }
+}

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/imperial.css">
     <link rel="stylesheet" href="../css/footer-styles.css">
     <link rel="stylesheet" href="../css/related-projects.css">
+    <link rel="stylesheet" href="../css/see-more-styles.css">
 </head>
 <body>
     <!-- Premium Navigation -->
@@ -89,8 +90,23 @@
                     </div>
                     
                     <div class="concept-text-content">
-                        <h2 class="revolution-heading">1ST LUXURY MALL OF GURUGRAM</h2>
-                        <p class="concept-description"> A trailblazing commercial masterpiece, Elan Imperial rises in the bustling heart of Gurugram, exuding unmatched elegance with groundbreaking innovation at its core. It effortlessly merges retail, hospitality, dining and entertainment, into an unparalleled fusion of extravagant experiences.</p>
+                        <h2 class="revolution-heading">About Elan Imperial</h2>
+                        <p class="concept-description">Elan Imperial, Gurgaon's first-ever luxury mall, prominently located in the prime Sector 82. Spanning approximately 9 acres, this landmark commercial project seamlessly merges a grand shopping mall and a five-star hotel under one roof, establishing a unique destination for premium shopping, entertainment, and hospitality.</p>
+                        
+                        <div class="additional-content" id="additionalContent" style="display: none;">
+                            <p class="concept-description">Elan Imperial is conceptualized as a high-return investment opportunity for those seeking the best commercial project in Gurgaon. Developed by the reputable Elan Group, known for its quality and trusted market presence, this project promises lucrative returns and enduring value. The blend of a luxury retail space and a 5-star hotel ensures a consistent stream of high-value footfall.</p>
+                            <p class="concept-description">The mall offers a wide variety of retail spaces, a modern multiplex, a dedicated food court, and the luxurious hotel. With over 50,000 families living nearby and the prestigious DLF Ultima project just opposite, the location guarantees high customer visibility.</p>
+                        </div>
+                        
+                        <!-- Hidden content that should not be shown on frontend -->
+                        <div class="hidden-content" style="display: none;">
+                            <p class="concept-description">Strategically connected to major roadways like the Dwarka Expressway, NH-8, Golf Course Road Extension, and close to Cyber City, IGI Airport, and upcoming metro lines, Elan Imperial Sector 82 Gurgaon provides effortless access for both businesses and customers. This perfect combination of location, infrastructure, and amenities makes Elan Imperial an unbeatable choice for commercial investment.</p>
+                        </div>
+                        
+                        <button class="see-more-btn" id="seeMoreBtn" onclick="toggleContent()">
+                            <span class="btn-text">See More</span>
+                            <i class="fas fa-chevron-down btn-icon"></i>
+                        </button>
                     </div>
                     
                     <div class="lifestyle-icons-container">
@@ -290,51 +306,51 @@
     <section class="key-features-reimagined" id="amenities">
         <div class="features-container">
             <div class="features-concept">
-                <h2 class="features-main-title">The Concept Behind It</h2>
+                <h2 class="features-main-title">The Concept Behind Elan Imperial</h2>
                 <p class="features-main-description">
-                    The 1st Ever Mixed-Used Destination of New Gurgaon featuring a Pioneering Blend of Luxury Retail & Hospitality.</p>
+                    Elan Imperial Sector 82 Gurgaon is the first luxury mall in New Gurgaon, combining luxury retail, entertainment, and hospitality in one iconic destination.</p>
             </div>
             <div class="features-list">
                 <div class="feature-list-item">
                     <img src="../assets/retail.webp" alt="Luxury Retail Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">Ultra Luxury Retail</h3>
-                        <p class="feature-list-description">Access the finest selection of world-renowned brands at the plush shopping haven.</p>
+                        <p class="feature-list-description">Explore a curated collection of top global brands in a sophisticated shopping environment designed for style and comfort.</p>
                     </div>
                 </div>
                 <div class="feature-list-item">
                     <img src="../assets/food.webp" alt="Food Court Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">Biggest Food Court</h3>
-                        <p class="feature-list-description">Indulge in a dining experience that delights your senses in a lavishly designed food court..</p>
+                        <p class="feature-list-description">Enjoy a lavishly designed food court with multiple cuisine options, perfect for every mood and occasion, promising a delightful dining experience.</p>
                     </div>
                 </div>
                 <div class="feature-list-item">
                     <img src="../assets/multiplex.webp" alt="Multiplex Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">Entertainment</h3>
-                        <p class="feature-list-description">Discover a state-of-the-art multiplex along with an array of diverse entertainment options.</p>
+                        <p class="feature-list-description">Experience the latest in entertainment with a state-of-the-art multiplex offering diverse movies and leisure options for all age groups.</p>
                     </div>
                 </div>
                 <div class="feature-list-item">
                     <img src="../assets/restaurant.webp" alt="Restaurant Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">5 Star Hotel</h3>
-                        <p class="feature-list-description">Discover a world of extravagance & exclusivity, presenting a cutting-edge fusion of retail & hospitality.</p>
+                        <p class="feature-list-description">Stay or host business guests in a world-class five-star hotel that blends hospitality excellence with the vibrancy of retail and dining around.</p>
                     </div>
                 </div>
                 <div class="feature-list-item">
                     <img src="../assets/water-body.webp" alt="Water Body Icon" class="feature-list-icon">
                     <div class="feature-list-text">
-                        <h3 class="feature-list-title">Water Body</h3>
-                        <p class="feature-list-description">Indulge in the ultimate shopping experience surrounded by the calm embrace of the serene waters.</p>
+                        <h3 class="feature-list-title">Water Body & Ambience</h3>
+                        <p class="feature-list-description">Relax around serene water features and landscaped spaces that add calm and charm, making every visit refreshing and memorable.</p>
                     </div>
                 </div>
                 <div class="feature-list-item">
                     <img src="../assets/dense.webp" alt="Premium Catchment Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">Premium Catchment</h3>
-                        <p class="feature-list-description">Located in a densely populated premium catchment, Elan Imperial ensures exceptional visibility and connectivity to a discerning audience.</p>
+                        <p class="feature-list-description">Situated in a densely populated, upscale neighborhood, Elan Imperial offers excellent visibility and easy access to a high-end customer base.</p>
                     </div>
                 </div>
             </div>
@@ -346,9 +362,9 @@
         <div class="location-content">
             <div class="location-text">
                 <p class="location-tagline">STRATEGIC POSITIONING</p>
-                <h2 class="location-title">Location Advantages</h2>
+                <h2 class="location-title">Location Advantages Elan Imperial</h2>
                 <ul class="location-benefits">
-                    <li>A new address of luxury is in the making at a distinguished address. Experience high-end retail infused with unmatched elegance in this ultra-luxury retail destination.</li>
+                    <li>A new style of luxury is being built at a respected place. Experience high-end retail infused with unmatched elegance in this ultra-luxury retail destination.</li>
                     <li>Positioning in Sector 82, Gurugram</li>
                     <li>Connectivity to NH 48 (Delhi Jaipur Highway)</li>
                     <li>Few minutes from Dwarka Expressway</li>
@@ -594,5 +610,28 @@
     <script src="script.js"></script>
     <!-- Imperial Page JavaScript -->
     <script src="../js/imperial.js"></script>
+    
+    <script>
+        function toggleContent() {
+            const additionalContent = document.getElementById('additionalContent');
+            const seeMoreBtn = document.getElementById('seeMoreBtn');
+            const btnText = seeMoreBtn.querySelector('.btn-text');
+            const btnIcon = seeMoreBtn.querySelector('.btn-icon');
+            
+            if (additionalContent.style.display === 'none') {
+                additionalContent.style.display = 'block';
+                btnText.textContent = 'See Less';
+                btnIcon.classList.add('fa-chevron-up');
+                btnIcon.classList.remove('fa-chevron-down');
+                seeMoreBtn.classList.add('expanded');
+            } else {
+                additionalContent.style.display = 'none';
+                btnText.textContent = 'See More';
+                btnIcon.classList.add('fa-chevron-down');
+                btnIcon.classList.remove('fa-chevron-up');
+                seeMoreBtn.classList.remove('expanded');
+            }
+        }
+    </script>
 </body>
 </html>

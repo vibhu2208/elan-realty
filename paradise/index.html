@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../css/paradise.css">
     <link rel="stylesheet" href="../css/footer-styles.css">
     <link rel="stylesheet" href="../css/related-projects.css">
+    <link rel="stylesheet" href="../css/see-more-styles.css">
 </head>
 <body>
     <!-- Premium Navigation -->
@@ -89,8 +90,24 @@
                     </div>
                     
                     <div class="concept-text-content">
-                        <h2 class="revolution-heading">The Greatest Luxury Retail Revolution</h2>
-                        <p class="concept-description">Paradise is more than a retail concept. It is the most revolutionary vision that is way ahead of today. It is an exclusive space for the most exclusives who value rarity in the most unique form. It is a magnificent landmark ready to take the retail world by storm.</p>
+                        <h2 class="revolution-heading">About Elan Paradise</h2>
+                        <p class="concept-description">Elan Paradise Sector 50 Gurgaon is a premium commercial project by the reputed Elan Group, strategically located in Nirvana Country. Spread across 4 acres, this development perfectly blends luxury retail, dining, and entertainment. It offers smartly designed retail spaces ranging from 300 to 1200 sq. ft., ideal for shop owners and investors seeking high returns.</p>
+                        
+                        <div class="additional-content" id="additionalContent" style="display: none;">
+                            <p class="concept-description">Known as Gurgaon's first concept-based high-street retail in Sector 50, Elan Paradise delivers a modern shopping and leisure experience with futuristic architecture by UHA London. Situated in Sector 50 Gurgaon, Elan Paradise enjoys excellent connectivity to major points like NH-8, Golf Course Extension Road, Sohna Road, and IGI Airport, just 30 minutes away.</p>
+                            
+                        </div>
+                        
+                        <!-- Hidden content that should not be shown on frontend -->
+                        <div class="hidden-content" style="display: none;">
+                            <p class="concept-description">The project features a five-screen multiplex, spacious food courts, fine dining restaurants, bars, and pubs, making it a vibrant entertainment hub. With world-class amenities including 24/7 security, ample parking for 1200 cars, power backup, and central air conditioning, Elan Paradise Sector 50 promises a smooth experience for business and visitors alike.</p>
+                            <p class="concept-description">Elan Paradise in Nirvana Country Gurgaon represents a futuristic commercial destination blending retail, entertainment, and hospitality. With possession expected by December 2024, it offers an excellent opportunity for investors and entrepreneurs to be part of one of Gurgaon's fastest-growing commercial hubs.</p>
+                        </div>
+                        
+                        <button class="see-more-btn" id="seeMoreBtn" onclick="toggleContent()">
+                            <span class="btn-text">See More</span>
+                            <i class="fas fa-chevron-down btn-icon"></i>
+                        </button>
                     </div>
                     
                     <div class="lifestyle-icons-container">
@@ -291,50 +308,50 @@
     <section class="key-features-reimagined" id="amenities">
         <div class="features-container">
             <div class="features-concept">
-                <h2 class="features-main-title">The Concept Behind It</h2>
-                <p class="features-main-description">Elan Paradise Epitomizes the Future of Commercial Realty, Redefining the Realm of Iconic High-Street Retail.</p>
+                <h2 class="features-main-title">The Concept Behind Elan Paradise</h2>
+                <p class="features-main-description">Elan Paradise Sector 50 Gurgaon is a premium high-street commercial project located in the heart of Nirvana Country. It is Gurgaon's first concept-based retail hub, bringing together shopping, dining, and entertainment in one vibrant destination. Spread over 4 acres, Elan Paradise is designed by UHA London, making it a stylish and futuristic commercial landmark in central Gurgaon.</p>
             </div>
             <div class="features-list">
                 <div class="feature-list-item">
                     <img src="../assets/retail.webp" alt="Luxury Retail Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">Luxury Retail</h3>
-                        <p class="feature-list-description">High-street retail reflects quality, sophistication, and style, attracting discerning shoppers who seek only the best.</p>
+                        <p class="feature-list-description">Elan Paradise offers stylish high-street retail spaces in Elan Nirvana Country Gurgaon with great visibility and location.</p>
                     </div>
                 </div>
                 <div class="feature-list-item">
                     <img src="../assets/food.webp" alt="Food Court Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">Food Court</h3>
-                        <p class="feature-list-description">Experience delightful dining that perfectly complements your shopping escapades.</p>
+                        <p class="feature-list-description">Elan Paradise in Sector 50 has a vibrant food court with multiple cuisines, perfect for quick meals and family hangouts.</p>
                     </div>
                 </div>
                 <div class="feature-list-item">
                     <img src="../assets/multiplex.webp" alt="Multiplex Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">Multiplex</h3>
-                        <p class="feature-list-description">A state-of-the-art multiplex that promises a well-rounded movie-watching experience.</p>
+                        <p class="feature-list-description">Elan Paradise Gurgaon features a 5-screen multiplex, making it a top spot for entertainment, shopping, and leisure activities.</p>
                     </div>
                 </div>
                 <div class="feature-list-item">
                     <img src="../assets/restaurant.webp" alt="Restaurant Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">Restaurant</h3>
-                        <p class="feature-list-description">Indulge in a symphony of flavours in exquisite fine dining restaurants.</p>
+                        <p class="feature-list-description">This project offers fine dining restaurants with various cuisines, creating a lively atmosphere for visitors and families.</p>
                     </div>
                 </div>
                 <div class="feature-list-item">
                     <img src="../assets/water-body.webp" alt="Water Body Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">Water Body</h3>
-                        <p class="feature-list-description">Indulge in the ultimate shopping experience surrounded by the calm embrace of the serene waters.</p>
+                        <p class="feature-list-description">Elan Paradise includes beautiful water features, adding charm and a peaceful ambience to the retail environment.</p>
                     </div>
                 </div>
                 <div class="feature-list-item">
                     <img src="../assets/dense.webp" alt="Premium Catchment Icon" class="feature-list-icon">
                     <div class="feature-list-text">
                         <h3 class="feature-list-title">Premium Catchment</h3>
-                        <p class="feature-list-description">Located in a densely populated premium catchment, Elan Paradise ensures exceptional visibility and connectivity to a discerning audience.</p>
+                        <p class="feature-list-description">Located in Elan Nirvana, Elan Sector 50 Gurgaon attracts high footfall from 1 lakh+ residents nearby, ensuring strong business potential.</p>
                     </div>
                 </div>
             </div>
@@ -346,14 +363,14 @@
         <div class="location-content">
             <div class="location-text">
                 <p class="location-tagline">STRATEGIC POSITIONING</p>
-                <h2 class="location-title">Location Advantages</h2>
+                <h2 class="location-title">Location Advantages Elan Paradise</h2>
                 <ul class="location-benefits">
-                    <li>Situated in the heart of Nirvana Country, Elan Paradise is surrounded by dense low- and high-rise residential development.</li>
-                    <li>Located in Sector 50, Nirvana Country, Gurugram</li>
-                    <li>Seamless Access from Wide Sector Road</li>
-                    <li>Connected With Golf Course Ext. Road</li>
-                    <li>Amidst Dense Premium Catchment</li>
-                    <li>Easy Connectivity from NH-8 And Delhi</li>
+                    <li>Elan Paradise Sector 50 Gurgaon is located in the heart of Nirvana Country, a premium residential area.</li>
+                    <li>Positioned in Sector 50, Elan Paradise in Gurgaon enjoys strong residential catchment and high daily footfall.</li>
+                    <li>Easy access through wide sector roads ensures smooth movement to and from the project.</li>
+                    <li>Well connected with Golf Course Ext. Road, adding to its location benefits.</li>
+                    <li>Quick connectivity from NH-8 and Delhi makes it easily reachable from major city points.</li>
+                    <li>Surrounded by dense low- and high-rise residential development, ideal for retail and investment.</li>
                 </ul>
             </div>
             <div class="location-map">
@@ -617,5 +634,28 @@
     <script src="../script.js"></script>
     <!-- Paradise Page JavaScript -->
     <script src="../js/paradise.js"></script>
+    
+    <script>
+        function toggleContent() {
+            const additionalContent = document.getElementById('additionalContent');
+            const seeMoreBtn = document.getElementById('seeMoreBtn');
+            const btnText = seeMoreBtn.querySelector('.btn-text');
+            const btnIcon = seeMoreBtn.querySelector('.btn-icon');
+            
+            if (additionalContent.style.display === 'none') {
+                additionalContent.style.display = 'block';
+                btnText.textContent = 'See Less';
+                btnIcon.classList.add('fa-chevron-up');
+                btnIcon.classList.remove('fa-chevron-down');
+                seeMoreBtn.classList.add('expanded');
+            } else {
+                additionalContent.style.display = 'none';
+                btnText.textContent = 'See More';
+                btnIcon.classList.add('fa-chevron-down');
+                btnIcon.classList.remove('fa-chevron-up');
+                seeMoreBtn.classList.remove('expanded');
+            }
+        }
+    </script>
 </body>
 </html>
